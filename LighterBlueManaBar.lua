@@ -1,6 +1,6 @@
-local function ChangeManaBarColor()
-	if not PlayerFrameManaBar then return end
-	PlayerFrameManaBar:SetStatusBarColor(0, 0.7, 1)
+local function ChangeManaBarColor(target)
+	if not target then return end
+	target:SetStatusBarColor(0, 0.7, 1)
 end
 
 local frame = CreateFrame("Frame")
