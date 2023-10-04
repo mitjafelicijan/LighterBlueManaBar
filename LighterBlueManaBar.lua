@@ -1,15 +1,22 @@
-local function ChangeManaBarColor(target)
-	if not target then return end
-	target:SetStatusBarColor(0, 0.7, 1)
+local function ChangeManaBarColor(frame)
+	if not frame then return end
+	
+	local _, classId = UnitClass(frame.unit)
+	local manaBar = _G[frame:GetName().."ManaBar"]
+	
+	if classId == "MAGE" or classId == "PRIEST" or classId == "PALADIN" or classId == "WARLOCK" then
+		manaBar:SetStatusBarColor(0, 0.7, 1)
+	end
 end
 
 local frame = CreateFrame("Frame")
+
 frame:RegisterEvent("PLAYER_ENTERING_WORLD")
+frame:RegisterEvent("UNIT_POWER_UPDATE")
 frame:RegisterEvent("PLAYER_TARGET_CHANGED")
+
 frame:SetScript("OnEvent", function(self, event)
-	if event == "PLAYER_ENTERING_WORLD" or event == "PLAYER_TARGET_CHANGED" then
-		ChangeManaBarColor(PlayerFrameManaBar)
-		ChangeManaBarColor(TargetFrameManaBar)
-	end
+	ChangeManaBarColor(PlayerFrame)
+	ChangeManaBarColor(TargetFrame)
 end)
 
