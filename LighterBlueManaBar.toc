@@ -1,6 +1,6 @@
 ## Interface: 11404
 ## Title: Lighter Blue Mana Bar
-## Version: 1.0.0
+## Version: 1.0.1
 ## Author: Mitja Felicijan
 ## Notes: Makes mana bar lighter blue color
 
